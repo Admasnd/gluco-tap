@@ -13,6 +13,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -39,12 +40,13 @@ public class DatabaseService {
     }
 
     public String parseUpload(String data) {
+        System.out.println(data);
         String[] result = new String[3];
         for(int i = 0; i < result.length; i++) {
             String current = data.split("&")[i];
             result[i] = current.split("=")[1] + " ";
         }
-        Reading reading = new Reading(Integer.parseInt(result[0].replaceAll(" ","")), result[2].replaceAll(" ",""), result[1].replaceAll(" ",""));
+        Reading reading = new Reading(Integer.parseInt(result[0].replaceAll(" ","")), new Date(Long.parseLong(result[2].replaceAll(" ",""))), result[1].replaceAll(" ",""));
         if (patientRepository.exists(reading.getPatientId())) {
             Patient patient = patientRepository.getOne(reading.getPatientId());
             readingRepository.save(reading);
@@ -64,9 +66,9 @@ public class DatabaseService {
     }
 
     public void fillSampleData() {
-        Reading r1 = new Reading(1, "12/10/96", "patient1");
-        Reading r2 = new Reading(2, "12/10/96", "patient1");
-        Reading r3 = new Reading(3, "12/10/96", "patient1");
+        Reading r1 = new Reading(1, new Date(2016, 12, 10, 14, 56), "patient1");
+        Reading r2 = new Reading(2, new Date(2016, 12, 10, 14, 56), "patient1");
+        Reading r3 = new Reading(3, new Date(2016, 12, 10, 14, 56), "patient1");
         readingRepository.save(r1);
         readingRepository.save(r2);
         readingRepository.save(r3);

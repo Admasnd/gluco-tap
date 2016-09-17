@@ -55,12 +55,12 @@ public class DatabaseController {
         return databaseService.getNameList();
     }
 
-    @RequestMapping(value = "/{id}/lower", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/lower", method = RequestMethod.PUT)
     public void setLower(@PathVariable("id") String patientId, @RequestParam int lower) {
         databaseService.saveLower(patientId, lower);
     }
 
-    @RequestMapping(value = "/{id}/upper", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/upper", method = RequestMethod.PUT)
     public void setHigher(@PathVariable("id") String patientId, @RequestParam int higher) {
         databaseService.saveUpper(patientId, higher);
     }

@@ -1,6 +1,7 @@
 package com.ge.Hackathon.db.model;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -14,14 +15,15 @@ public class Reading {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private int glucoseLevel;
-    private String dateTime;
+    @Column(columnDefinition = "timestamp with timezone")
+    private Date dateTime;
     private String patientId;
 
     public Reading() {
 
     }
 
-    public Reading(int glucoseLevel, String dateTime, String patientId) {
+    public Reading(int glucoseLevel, Date dateTime, String patientId) {
         this.glucoseLevel = glucoseLevel;
         this.dateTime = dateTime;
         this.patientId = patientId;
@@ -44,11 +46,11 @@ public class Reading {
         this.glucoseLevel = glucoseLevel;
     }
 
-    public String getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
 
