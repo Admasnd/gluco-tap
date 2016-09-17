@@ -4,6 +4,7 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,10 +18,13 @@ public class Patient {
     @Id
     private String id;
     @OneToMany(cascade={CascadeType.ALL})
-    //@NotFound(action = NotFoundAction.IGNORE)
-    private Set<Reading> readings;
+    private List<Reading> readings;
 
-    public Patient(String firstName, String lastName, String id, Set<Reading> readings) {
+    public Patient() {
+
+    }
+
+    public Patient(String firstName, String lastName, String id, List<Reading> readings) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
@@ -53,15 +57,15 @@ public class Patient {
     }
 
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-    public Set<Reading> getReadings() {
+    public List<Reading> getReadings() {
         return readings;
     }
 
-    public void setReadings(Set<Reading> readings) {
+    public void setReadings(List<Reading> readings) {
         this.readings = readings;
     }
 
-    public String toString() {
+    /*public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(firstName);
         stringBuffer.append(",");
@@ -69,5 +73,5 @@ public class Patient {
         stringBuffer.append(" ");
         stringBuffer.append(id);
         return stringBuffer.toString();
-    }
+    }*/
 }

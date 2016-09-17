@@ -1,6 +1,10 @@
 package com.ge.Hackathon.db;
 
+import com.ge.Hackathon.db.model.Patient;
+import com.ge.Hackathon.db.model.Reading;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by JasonGibson on 9/16/16.
@@ -23,5 +27,15 @@ public class DatabaseController {
     @RequestMapping(method = RequestMethod.GET)
     public String getSampleData() {
         return "Hello World!";
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Patient getPatient(@PathVariable("id") String patientId) {
+        return databaseService.getPatientInfo(patientId);
+    }
+
+    @RequestMapping(value = "/{id}/getAllReadings", method = RequestMethod.GET)
+    public List<Reading> getAllReadings(@PathVariable("id") String patientId) {
+        return databaseService.getAllReadings(patientId);
     }
 }

@@ -1,8 +1,7 @@
 package com.ge.Hackathon.db.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.UUID;
 
 /**
  * Created by JasonGibson on 9/16/16.
@@ -12,22 +11,28 @@ import javax.persistence.Table;
 public class Reading {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
     private int glucoseLevel;
     private String dateTime;
+    private String patientId;
 
-    public Reading(String id, int glucoseLevel, String dateTime) {
-        this.id = id;
+    public Reading() {
+
+    }
+
+    public Reading(int glucoseLevel, String dateTime, String patientId) {
         this.glucoseLevel = glucoseLevel;
         this.dateTime = dateTime;
+        this.patientId = patientId;
     }
 
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -45,5 +50,13 @@ public class Reading {
 
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
 }
