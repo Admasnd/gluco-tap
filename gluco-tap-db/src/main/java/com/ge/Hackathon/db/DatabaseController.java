@@ -19,6 +19,16 @@ public class DatabaseController {
         this.databaseService = databaseService;
     }
 
+    @RequestMapping(method = RequestMethod.PUT)
+    public String test() {
+        return "Hello World!";
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void remove() {
+        databaseService.clear();
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public String uploadDataValue(@RequestBody String data) {
         return databaseService.parseUpload(data);

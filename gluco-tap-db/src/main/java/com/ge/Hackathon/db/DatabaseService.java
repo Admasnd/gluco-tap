@@ -35,9 +35,10 @@ public class DatabaseService {
         readingList.add(r1);
         readingList.add(r2);
         readingList.add(r3);
-        Patient patient = new Patient("jason", "gibson", "patient1", readingList);
+        Patient patient = new Patient("jason", "gibson", "patient1", readingList, 60, 400);
         patientRepository.save(patient);
         return data;
+        //make sure to check if above or below a certain threshold
     }
 
     public Patient getPatientInfo(String patientId) {
@@ -46,5 +47,10 @@ public class DatabaseService {
 
     public List<Reading> getAllReadings(String patientId) {
         return readingRepository.findByPatientId(patientId);
+    }
+
+    public void clear() {
+        patientRepository.deleteAll();
+        readingRepository.deleteAll();
     }
 }
