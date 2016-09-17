@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,7 +57,9 @@ public class SendPost {
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("patientId", test[0]);
-                params.put("dateTime", test[1]);
+                long dtMili = System.currentTimeMillis();
+                String Long = String.valueOf(dtMili);
+                params.put("dateTime", Long);
                 params.put("glucoseLevel", test[2]);
                 return params;
             }
