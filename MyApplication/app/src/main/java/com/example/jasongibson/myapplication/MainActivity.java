@@ -13,8 +13,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public final void SendPost(View v) {
-        String[] sampleData = {"patient1", "1997-07-16T19:20+01:00", "1"};
+    public final void sendPostGood(View v) {
+        String[] sampleData = {"patient1", "1997-07-16T19:20+01:00", "130"};
+        new SendPost(v.getContext()).post(sampleData);
+    }
+
+    public final void sendPostLow(View v) {
+        String[] sampleData = {"patient1", "1997-07-16T19:20+01:00", "20"};
+        new SendPost(v.getContext()).post(sampleData);
+    }
+    public final void sendPostHigh(View v) {
+        String[] sampleData = {"patient1", "1997-07-16T19:20+01:00", "410"};
         new SendPost(v.getContext()).post(sampleData);
     }
 }
