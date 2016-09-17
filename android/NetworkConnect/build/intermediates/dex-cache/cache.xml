@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.1.1_912773e887f67b5d7d0d2aedbce9f0623b070e2f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="8a5380ddd58f4f8946ddade4c64dd77de4a836d5">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-gridlayout-v7-24.1.1_b768bbccdc5d1c74fc766ddaa85a03c9ddb973b3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.1.1_8e0dd5ad2b0c99ca4d0498c9483469a1d4859cda\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.1.1_e07978276f3b8721fbd45fd196063573e1b5c10d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.1.1_3662e0ae9f12b95e4c1878ee252d676e70dccb80\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="b6308f4fd047c05acb60491c00451dd45a50fa22">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5e4e3efc0dddeec595a2d6fa71502af817d06280\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3de012125db057f387bb7978b0a8f5956d64538c">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8e82b6018c1f208a8ca8af588260bbca171c9733\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.1.1\3af19f153122737b372622fa6c81dd11a1c6b999\support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.1.1_5e1c1907a7717f0976a1d53d7e3e25b6878933ec\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.1.1_4fdc6baef259294959f9a7af107685bcc21b1e20\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="4add8aa95c9f4e9a2ad64b7e2bf08e97e28955c1">
+        <dex dex="C:\Users\Antwane\OneDrive\Documents\hackathon\glucotap\android\NetworkConnect\Application\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.1.1_bdf2279ca027ea5b70e7d4f73470fb89f405ad51\classes.dex" />
+    </item>
+
+</items>
