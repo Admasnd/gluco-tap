@@ -1,0 +1,9 @@
+---
+applications:
+- name: gluco-tap-database-interaction
+  host: gluco-tap
+  memory: 1G
+  path: /Users/JasonGibson/Documents/GE/gluco-tap/gluco-tap-db/target/gluco-tap-db-1.0-SNAPSHOT.jar
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git#v3.9
+  services:
+  - gluco-tap-postgres
