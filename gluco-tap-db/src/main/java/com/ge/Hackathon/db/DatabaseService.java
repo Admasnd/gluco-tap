@@ -65,7 +65,10 @@ public class DatabaseService {
     }
 
     public Patient getPatientInfo(String patientId) {
-        return patientRepository.getOne(patientId);
+        if (patientRepository.exists(patientId)) {
+            return patientRepository.getOne(patientId);
+        }
+        return null;
     }
 
     public List<Reading> getAllReadings(String patientId) {
