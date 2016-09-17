@@ -24,6 +24,14 @@ public class DatabaseService {
         this.readingRepository = readingRepository;
     }
 
+    private void checkMessageNeeded(int bloodGlucose, Patient patient) {
+        if (bloodGlucose < patient.getLowerBound()) {
+            System.out.println("1");
+        } else if (bloodGlucose > patient.getUpperBound()) {
+            System.out.println("2");
+        }
+    }
+
     public String parseUpload(String data) {
         String[] result = new String[3];
         for(int i = 0; i < result.length; i++) {
@@ -31,21 +39,20 @@ public class DatabaseService {
             result[i] = current.split("=")[1] + " ";
         }
         Reading reading = new Reading(Integer.parseInt(result[0].replaceAll(" ","")), result[2].replaceAll(" ",""), result[1].replaceAll(" ",""));
-
-        ;
-        if (patientRepository.exists(result[1].replaceAll("\\s+",""))) {
-            Patient patient = patientRepository.getOne(result[1].replaceAll("\\s+",""));
+        if (patientRepository.exists(reading.getPatientId())) {
+            Patient patient = patientRepository.getOne(reading.getPatientId());
             readingRepository.save(reading);
             patient.getReadings().add(reading);
             patientRepository.save(patient);
+            checkMessageNeeded(reading.getGlucoseLevel(), patient);
         } else {
             readingRepository.save(reading);
             List<Reading> readingList = new ArrayList<Reading>();
             readingList.add(reading);
-            Patient patient = new Patient("no first name", "no last name", result[1].replaceAll("\\s+",""), readingList, 60, 400);
+            Patient patient = new Patient("no first name", "no last name", reading.getPatientId(), readingList, 60, 400);
             patientRepository.save(patient);
+            checkMessageNeeded(reading.getGlucoseLevel(), patient);
         }
-
         return data;
     }
 
