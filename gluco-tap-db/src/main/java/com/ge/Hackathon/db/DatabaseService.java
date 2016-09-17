@@ -25,6 +25,31 @@ public class DatabaseService {
     }
 
     public String parseUpload(String data) {
+        String[] result = new String[3];
+        for(int i = 0; i < result.length; i++) {
+            String current = data.split("&")[i];
+            result[i] = current.split("=")[1] + " ";
+        }
+        Reading reading = new Reading(Integer.parseInt(result[0].replaceAll(" ","")), result[2].replaceAll(" ",""), result[1].replaceAll(" ",""));
+
+        ;
+        if (patientRepository.exists(result[1].replaceAll("\\s+",""))) {
+            Patient patient = patientRepository.getOne(result[1].replaceAll("\\s+",""));
+            readingRepository.save(reading);
+            patient.getReadings().add(reading);
+            patientRepository.save(patient);
+        } else {
+            readingRepository.save(reading);
+            List<Reading> readingList = new ArrayList<Reading>();
+            readingList.add(reading);
+            Patient patient = new Patient("no first name", "no last name", result[1].replaceAll("\\s+",""), readingList, 60, 400);
+            patientRepository.save(patient);
+        }
+
+        return data;
+    }
+
+    public void fillSampleData() {
         Reading r1 = new Reading(1, "12/10/96", "patient1");
         Reading r2 = new Reading(2, "12/10/96", "patient1");
         Reading r3 = new Reading(3, "12/10/96", "patient1");
@@ -37,8 +62,6 @@ public class DatabaseService {
         readingList.add(r3);
         Patient patient = new Patient("jason", "gibson", "patient1", readingList, 60, 400);
         patientRepository.save(patient);
-        return data;
-        //make sure to check if above or below a certain threshold
     }
 
     public Patient getPatientInfo(String patientId) {

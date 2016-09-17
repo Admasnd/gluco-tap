@@ -31,6 +31,8 @@ public class Patient {
         this.lastName = lastName;
         this.id = id;
         this.readings = readings;
+        this.upperBound = upperBound;
+        this.lowerBound = lowerBound;
     }
 
 

@@ -35,8 +35,8 @@ public class DatabaseController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getSampleData() {
-        return "Hello World!";
+    public void storeSampleData() {
+        databaseService.fillSampleData();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
