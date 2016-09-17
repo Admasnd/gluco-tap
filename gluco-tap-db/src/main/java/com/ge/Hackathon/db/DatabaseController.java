@@ -4,6 +4,7 @@ import com.ge.Hackathon.db.model.Patient;
 import com.ge.Hackathon.db.model.Reading;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -53,6 +54,4 @@ public class DatabaseController {
     public List<String> getNameList() {
         return databaseService.getNameList();
     }
-
-
 }

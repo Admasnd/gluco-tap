@@ -4,6 +4,12 @@ import com.ge.Hackathon.db.model.Patient;
 import com.ge.Hackathon.db.model.PatientRepository;
 import com.ge.Hackathon.db.model.Reading;
 import com.ge.Hackathon.db.model.ReadingRepository;
+import com.twilio.sdk.TwilioRestClient;
+import com.twilio.sdk.TwilioRestException;
+import com.twilio.sdk.resource.factory.MessageFactory;
+import com.twilio.sdk.resource.instance.Message;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,9 +32,9 @@ public class DatabaseService {
 
     private void checkMessageNeeded(int bloodGlucose, Patient patient) {
         if (bloodGlucose < patient.getLowerBound()) {
-            System.out.println("1");
+            sendMessage("your blood sugar is too low");
         } else if (bloodGlucose > patient.getUpperBound()) {
-            System.out.println("2");
+            sendMessage("your blood sugar is too high");
         }
     }
 
@@ -94,5 +100,27 @@ public class DatabaseService {
             names.add(current.getLastName() + ", " + current.getFirstName());
         }
         return names;
+    }
+
+    private final String accountSID = "AC3ceb5731f004a47d4232bbb946e460b3";
+    private final String authToken = "b51d78fa9c7bbb9ba1b134ad1ca19e27";
+
+    public void sendMessage(String message) {
+        TwilioRestClient client = new TwilioRestClient(accountSID, authToken);
+
+        // Build a filter for the MessageList
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("Body", message));
+        params.add(new BasicNameValuePair("To", "+12405053437"));
+        params.add(new BasicNameValuePair("From", "+15854548472"));
+
+        MessageFactory messageFactory = client.getAccount().getMessageFactory();
+        Message textMessage = null;
+        try {
+            textMessage = messageFactory.create(params);
+        } catch (TwilioRestException e) {
+            e.printStackTrace();
+        }
+        System.out.println(textMessage.getSid());
     }
 }
