@@ -11,6 +11,7 @@ import java.util.List;
  * Created by JasonGibson on 9/16/16.
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/upload")
 public class DatabaseController {
 
