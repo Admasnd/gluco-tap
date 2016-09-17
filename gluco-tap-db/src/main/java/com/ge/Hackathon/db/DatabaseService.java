@@ -32,9 +32,9 @@ public class DatabaseService {
 
     private void checkMessageNeeded(int bloodGlucose, Patient patient) {
         if (bloodGlucose < patient.getLowerBound()) {
-            sendMessage("your blood sugar is too low");
+            sendMessage("your blood sugar is too low " + bloodGlucose + " < " + patient.getLowerBound());
         } else if (bloodGlucose > patient.getUpperBound()) {
-            sendMessage("your blood sugar is too high");
+            sendMessage("your blood sugar is too high " + bloodGlucose + " > " + patient.getUpperBound());
         }
     }
 
@@ -122,5 +122,21 @@ public class DatabaseService {
             e.printStackTrace();
         }
         System.out.println(textMessage.getSid());
+    }
+
+    public void saveLower(String patientId, int lower) {
+        if (patientRepository.exists(patientId)) {
+            Patient patient = patientRepository.getOne(patientId);
+            patient.setLowerBound(lower);
+            patientRepository.save(patient);
+        }
+    }
+
+    public void saveUpper(String patientId, int upper) {
+        if (patientRepository.exists(patientId)) {
+            Patient patient = patientRepository.getOne(patientId);
+            patient.setUpperBound(upper);
+            patientRepository.save(patient);
+        }
     }
 }
