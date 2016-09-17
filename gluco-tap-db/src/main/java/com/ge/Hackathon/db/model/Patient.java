@@ -1,11 +1,7 @@
 package com.ge.Hackathon.db.model;
 
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by JasonGibson on 9/16/16.
@@ -21,18 +17,29 @@ public class Patient {
     private List<Reading> readings;
     private int lowerBound;
     private int upperBound;
+    private int age;
+    private String gender;
+    private double weight;
+    private String exercise;
+    private String[] medications;
 
     public Patient() {
 
     }
 
-    public Patient(String firstName, String lastName, String id, List<Reading> readings, int lowerBound, int upperBound) {
+    public Patient(String firstName, String lastName, String id, List<Reading> readings, int lowerBound, int upperBound,
+                   int age, String gender, double weight, String exercise, String[] medications) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
         this.readings = readings;
         this.upperBound = upperBound;
         this.lowerBound = lowerBound;
+        this.age = age;
+        this.gender = gender;
+        this.weight = weight;
+        this.exercise = exercise;
+        this.medications = medications;
     }
 
 
@@ -83,6 +90,46 @@ public class Patient {
 
     public void setUpperBound(int upperBound) {
         this.upperBound = upperBound;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public String getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(String exercise) {
+        this.exercise = exercise;
+    }
+
+    public String[] getMedications() {
+        return medications;
+    }
+
+    public void setMedications(String[] medications) {
+        this.medications = medications;
     }
 
     /*public String toString() {

@@ -49,7 +49,8 @@ public class DatabaseService {
             readingRepository.save(reading);
             List<Reading> readingList = new ArrayList<Reading>();
             readingList.add(reading);
-            Patient patient = new Patient("no first name", "no last name", reading.getPatientId(), readingList, 60, 400);
+            Patient patient = new Patient("no first name", "no last name", reading.getPatientId(), readingList, 60, 400, 0, "gender not set",
+                    0.0, "not set", null);
             patientRepository.save(patient);
             checkMessageNeeded(reading.getGlucoseLevel(), patient);
         }
@@ -67,7 +68,7 @@ public class DatabaseService {
         readingList.add(r1);
         readingList.add(r2);
         readingList.add(r3);
-        Patient patient = new Patient("jason", "gibson", "patient1", readingList, 60, 400);
+        Patient patient = new Patient("jason", "gibson", "patient1", readingList, 60, 400, 19 ,"Male", 230.0, "moderate", null);
         patientRepository.save(patient);
     }
 
@@ -85,5 +86,13 @@ public class DatabaseService {
     public void clear() {
         patientRepository.deleteAll();
         readingRepository.deleteAll();
+    }
+
+    public List<String> getNameList() {
+        List<String> names = new ArrayList<String>();
+        for(Patient current : patientRepository.findAll()) {
+            names.add(current.getLastName() + ", " + current.getFirstName());
+        }
+        return names;
     }
 }

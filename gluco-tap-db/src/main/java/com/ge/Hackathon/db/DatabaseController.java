@@ -48,4 +48,11 @@ public class DatabaseController {
     public List<Reading> getAllReadings(@PathVariable("id") String patientId) {
         return databaseService.getAllReadings(patientId);
     }
+
+    @RequestMapping(value = "/patientNames", method = RequestMethod.GET)
+    public List<String> getNameList() {
+        return databaseService.getNameList();
+    }
+
+
 }
