@@ -19,12 +19,14 @@ public class Patient {
     private String id;
     @OneToMany(cascade={CascadeType.ALL})
     private List<Reading> readings;
+    private int lowerBound;
+    private int upperBound;
 
     public Patient() {
 
     }
 
-    public Patient(String firstName, String lastName, String id, List<Reading> readings) {
+    public Patient(String firstName, String lastName, String id, List<Reading> readings, int lowerBound, int upperBound) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
@@ -63,6 +65,22 @@ public class Patient {
 
     public void setReadings(List<Reading> readings) {
         this.readings = readings;
+    }
+
+    public int getLowerBound() {
+        return lowerBound;
+    }
+
+    public void setLowerBound(int lowerBound) {
+        this.lowerBound = lowerBound;
+    }
+
+    public int getUpperBound() {
+        return upperBound;
+    }
+
+    public void setUpperBound(int upperBound) {
+        this.upperBound = upperBound;
     }
 
     /*public String toString() {
